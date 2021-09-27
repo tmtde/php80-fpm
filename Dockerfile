@@ -9,7 +9,7 @@ ARG VCS_REF
 ARG VCS_BRANCH
 # See http://label-schema.org/rc1/ and https://microbadger.com/labels
 LABEL org.label-schema.name="PHP 8.0 - FastCGI Process Manager" \
-    org.label-schema.description="PHP-FPM 8.0 (with some more extentions installed)" \
+    org.label-schema.description="PHP-FPM 8.0 (with some more extensions installed)" \
     org.label-schema.vendor="TMT GmbH & Co. KG" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.build-date="${BUILD_DATE:-unknown}" \
