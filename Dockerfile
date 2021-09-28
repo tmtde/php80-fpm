@@ -1,6 +1,4 @@
-FROM php:8.0-fpm-alpine
-
-MAINTAINER Thomas Appel <thomas.appel@tmt.de>
+FROM php:8.0.11-fpm-alpine
 
 ARG BUILD_DATE
 ARG BUILD_VERSION
@@ -8,8 +6,9 @@ ARG VCS_URL
 ARG VCS_REF
 ARG VCS_BRANCH
 # See http://label-schema.org/rc1/ and https://microbadger.com/labels
-LABEL org.label-schema.name="PHP 8.0 - FastCGI Process Manager" \
-    org.label-schema.description="PHP-FPM 8.0 (with some more extentions installed)" \
+LABEL maintainer="Thomas Appel <thomas.appel@tmt.de>" \
+    org.label-schema.name="PHP 8.0 - FastCGI Process Manager" \
+    org.label-schema.description="PHP-FPM 8.0 (with some more extensions installed)" \
     org.label-schema.vendor="TMT GmbH & Co. KG" \
     org.label-schema.schema-version="1.0" \
     org.label-schema.build-date="${BUILD_DATE:-unknown}" \
@@ -31,6 +30,7 @@ ENV EXT_DEPS \
   gettext-dev
 ENV COMPOSER_ALLOW_SUPERUSER 1
 
+# hadolint ignore=SC2086,DL3017,DL3018,DL4006
 RUN set -xe; \
   apk --no-cache update && apk --no-cache upgrade \
   && apk add --no-cache --repository http://dl-3.alpinelinux.org/alpine/edge/community gnu-libiconv \
